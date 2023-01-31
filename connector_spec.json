@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "fields": [
+    {
+      "field": "USERNAME",
+      "displayName": "DNA Center Username",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "DNA Center Host username",
+      "example": "admin",
+      "helpSection": "DNA Center host username"
+    },
+    {
+      "field": "PASSWORD",
+      "displayName": "DNA Center Password",
+      "type": "password",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "DNA Center Host password",
+      "example": "admin",
+      "helpSection": "DNA Center Host password"
+    },
+    {
+      "field": "SECURE",
+      "displayName": "Secure Connection",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 10,
+      "required": true,
+      "description": "DNA Center Secure Connection",
+      "example": "false",
+      "helpSection": "If DNAC Host connection is secured by HTTPS/TLS, enter true. Otherwise if it is backed by self-signed certificate or not backed by HTTPS at all, then enter false"
+    },
+    {
+      "field": "SERVER_URL",
+      "displayName": "DNA Center Host URL",
+      "type": "String",
+      "minLength": 4,
+      "maxLength": 60,
+      "required": true,
+      "description": "DNA Center Host URL",
+      "example": "http://10.10.10.10",
+      "helpSection": "DNA Center Host URL"
+    }
+  ]
+}
