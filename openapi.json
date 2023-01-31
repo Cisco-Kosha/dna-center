@@ -1,1 +1,219 @@
-{}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {
+      "email": "support@cisco.com"
+    },
+    "description": "",
+    "termsOfService": "https://cisco.com",
+    "title": "DNA Center API",
+    "version": "1.0.6"
+  },
+  "servers": [{
+    "url": "/"
+  }],
+  "paths": {
+    "/api/system/v1/maglev/backup": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "backups"
+        ],
+        "description": "list all backups",
+        "operationId": "list_all_backups",
+        "summary": "List all of your DNA center backups"
+      },
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBackup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "backups"
+        ],
+        "description": "Create DNAC backup",
+        "operationId": "create_backup",
+        "summary": "Create DNA center backup"
+      }
+    },
+    "/api/system/v1/maglev/backup/history": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "backups"
+        ],
+        "description": "list all backup history",
+        "operationId": "list_all_backups_history",
+        "summary": "List all of your DNA center backup history"
+      }
+    },
+    "/api/system/v1/maglev/backup/progress": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "backups"
+        ],
+        "description": "get DNAC backup progress",
+        "operationId": "get_backup_progress",
+        "summary": "Get DNA center backup progress"
+      }
+    },
+    "/api/system/v1/maglev/backup/{id}": {
+      "delete": {
+        "parameters": [{
+          "description": "Valid backup id",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "backups"
+        ],
+        "description": "delete DNAC backup",
+        "operationId": "delete_backup",
+        "summary": "Delete DNA center backup"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateBackup": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about DNA Center APIs",
+    "url": "https://developer.cisco.com/docs/dna-center"
+  }
+}
