@@ -4,7 +4,7 @@
     "contact": {
       "email": "support@cisco.com"
     },
-    "description": "",
+    "description": "Cisco DNA Center is a software-based network automation and assurance solution.",
     "termsOfService": "https://cisco.com",
     "title": "DNA Center API",
     "version": "1.0.6"
