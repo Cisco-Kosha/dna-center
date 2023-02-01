@@ -9,7 +9,7 @@
     "title": "DNA Center API",
     "version": "1.0.6"
   },
-  "servers": [{
+        "servers": [{
     "url": "/"
   }],
   "paths": {
@@ -46,7 +46,7 @@
         "operationId": "list_all_backups",
         "summary": "List all of your DNA center backups"
       },
-      "post": {
+            "post": {
         "requestBody": {
           "content": {
             "application/json": {
@@ -198,6 +198,344 @@
         "operationId": "delete_backup",
         "summary": "Delete DNA center backup"
       }
+    },
+    "/dna/intent/api/v1/network-device": {
+      "get": {
+        "parameters": [{
+          "description": "Hostname",
+          "in": "query",
+          "name": "hostname",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "description": "Mac Adress",
+          "in": "query",
+          "name": "macAdress",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "description": "Location",
+          "in": "query",
+          "name": "location",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "description": "Accepts comma separated ids and return list of network-devices for the given ids. If invalid or not-found ids are provided, null entry will be returned in the list.",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "description": "Returns list of network devices based on filter criteria such as management IP address, mac address, hostname, etc. You can use the .* in any value to conduct a wildcard search. For example, to find all hostnames beginning with myhost in the IP address range 192.25.18.n, issue the following request: GET /dna/intent/api/v1/network-device?hostname=myhost.*&managementIpAddress=192.25.18..* If id parameter is provided with comma separated ids, it will return the list of network-devices for the given ids and ignores the other request parameters. You can also specify offset & limit to get the required list.",
+        "operationId": "getDeviceList",
+        "summary": "Get DNAC Device List"
+      }
+    },
+    "/dna/intent/api/v1/network-device/count": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "description": "Returns the count of network devices based on the filter criteria by management IP address, mac address, hostname and location name",
+        "operationId": "getDeviceCount",
+        "summary": "Get Device Count"
+      }
+    },
+    "/dna/intent/api/v1/network-device/{id}": {
+      "get": {
+        "parameters": [{
+          "description": "Valid Device id",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "description": "Returns the network device details for the given device ID",
+        "operationId": "getDeviceById",
+        "summary": "Get Device By Id"
+      },
+       "delete": {
+        "parameters": [{
+          "description": "Valid Device id",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "description": "Deletes the network device for the given Id",
+        "operationId": "deleteDeviceById",
+        "summary": "Delete Device By Id"
+      }
+    },
+    "/dna/intent/api/v1/interface/network-device/{deviceId}/count": {
+      "get": {
+        "parameters": [{
+          "description": "Valid Device id",
+          "in": "path",
+          "name": "deviceId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "devices"
+        ],
+        "description": "Returns the interface count for the given device",
+        "operationId": "getDeviceCountById",
+        "summary": "Get Device Interface Count By Id"
+      }
+    },
+    "/dna/intent/api/v1/site": {
+      "get": {
+        "parameters": [{
+          "description": "siteNameHierarchy (ex: global/groupName)",
+          "in": "query",
+          "name": "name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "description": "Site id to which site details to retrieve.",
+          "in": "query",
+          "name": "siteId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "sites"
+        ],
+        "description": "Get site using siteNameHierarchy/siteId/type ,return all sites if these parameters are not given as input.",
+        "operationId": "getSites",
+        "summary": "Get sites"
+      }
+    },
+    "/dna/intent/api/v1/site/count": {
+      "get": {
+        "parameters": [
+        {
+          "description": "Site id to retrieve site count.",
+          "in": "query",
+          "name": "siteId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "There was an error when processing your request. Please adjust your request based on the endpoint requirements and try again."
+          },
+          "401": {
+            "description": "The provided API token is invalid."
+          },
+          "403": {
+            "description": "The action is denied for that account or a particular API token."
+          },
+          "422": {
+            "description": "There was a validation error found when processing the request. Please adjust it based on the endpoint requirements and try again."
+          }
+        },
+        "tags": [
+          "sites"
+        ],
+        "description": "API to get site count",
+        "operationId": "getSiteCount",
+        "summary": "Get sites count"
+      }
     }
   },
   "components": {
@@ -211,7 +549,7 @@
         }
       }
     }
-  },
+    },
   "externalDocs": {
     "description": "Find out more about DNA Center APIs",
     "url": "https://developer.cisco.com/docs/dna-center"
