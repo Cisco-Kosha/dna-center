@@ -11,4 +11,4 @@ RUN adduser -S -D -H -h /app appuser
 USER appuser
 COPY --from=builder /build/dna-center /app/
 WORKDIR /app
-CMD ["./dna-center]
+CMD ["./dna-center"]
