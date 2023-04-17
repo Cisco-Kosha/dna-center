@@ -8,8 +8,7 @@ Using the Kosha Webex Messaging connector, you can perform REST API operations t
 
 ## Useful Actions
 
-You can use the Kosha Cisco DNA Center connector to perform to manage messages, rooms, teams, and people.  
-
+You can use the Kosha Cisco DNA Center connector to manage messages, rooms, teams, and people.  
 
 Refer to the Kosha Cisco DNA Center connector [API specification](openapi.json) for details.
 
@@ -31,7 +30,20 @@ Use the Policy API to create application policies used to reflect your organizat
 
 ## Example Usage
 
-< sdk example? >
+The following assigns a device to a site:
+
+```
+curl -L --request POST \
+--url https:///dna/intent/api/v1/assign-device-to-site/{siteId}/device \
+--header '__runsync: null' \
+--header '__persistbapioutput: true' \
+--header '__runsynctimeout: 55' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--data '{
+    "device": [ { "ip": "123.456.789" } ]
+}'
+```
 
 ## Authentication
 
