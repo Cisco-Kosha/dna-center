@@ -30,7 +30,7 @@ Use the Policy API to create application policies used to reflect your organizat
 
 ## Example Usage
 
-The following assigns a device to a site:
+The following request assigns a device to a site:
 
 ```
 curl -L --request POST \
