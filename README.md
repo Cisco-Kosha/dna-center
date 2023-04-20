@@ -4,11 +4,11 @@
 
 The Cisco DNA Center Intent REST API exposes specific capabilities of the Cisco DNA Center platform and provides policy-based abstraction of business intent, allowing focus on an outcome rather than struggling with individual mechanisms steps.
 
-Using the Kosha Webex Messaging connector, you can perform REST API operations to discover and control the network. For more information, see Intent API. Using the Webex Messaging API, your Kosha workflow or application can directly access the Webex platform to:
+Using the Kosha Cisco DNA Center connector, you can perform REST API operations to discover and control the network. 
 
 ## Useful Actions
 
-You can use the Kosha Cisco DNA Center connector to manage networks, sites, opertational tasks, and policies.  
+You can use the Kosha Cisco DNA Center connector to manage networks, sites, operational tasks, and policies.  
 
 Refer to the Kosha Cisco DNA Center connector [API specification](openapi.json) for details.
 
