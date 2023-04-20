@@ -8,7 +8,7 @@ Using the Kosha Webex Messaging connector, you can perform REST API operations t
 
 ## Useful Actions
 
-You can use the Kosha Cisco DNA Center connector to manage messages, rooms, teams, and people.  
+You can use the Kosha Cisco DNA Center connector to manage networks, sites, opertational tasks, and policies.  
 
 Refer to the Kosha Cisco DNA Center connector [API specification](openapi.json) for details.
 
