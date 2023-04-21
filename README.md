@@ -47,6 +47,6 @@ curl -L --request POST \
 
 ## Authentication
 
-Authentication requires your Cisco DNA Center server URL, username, and password. The Kosha Cisco DNA Center connector automatically injects an `X-Auth-Token` header for every request made.
+To authenticate when provisioning the Kosha Cisco DNA Center connector, you need your Cisco DNA Center server URL, username, and password. The Kosha Cisco DNA Center connector automatically injects an `X-Auth-Token` header for every request made.
 
 To work properly, The Kosha Cisco DNA Center connector must be able to reach the server URL. Configure your firewall rules appropriately.
