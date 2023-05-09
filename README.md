@@ -28,23 +28,6 @@ Use the Operational Tools API to access and manage backups, discover network dev
 
 Use the Policy API to create application policies used to reflect your organization's business intent and translates them into network-specific and device-specific configurations required by the different types, makes, models, operating systems, roles, and resource constraints of your network devices.
 
-## Example Usage
-
-The following request assigns a device to a site:
-
-```
-curl -L --request POST \
---url https:///dna/intent/api/v1/assign-device-to-site/{siteId}/device \
---header '__runsync: null' \
---header '__persistbapioutput: true' \
---header '__runsynctimeout: 55' \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---data '{
-    "device": [ { "ip": "123.456.789" } ]
-}'
-```
-
 ## Authentication
 
 To authenticate when provisioning the Kosha Cisco DNA Center connector, you need your Cisco DNA Center server URL, username, and password. The Kosha Cisco DNA Center connector automatically injects an `X-Auth-Token` header for every request made.
