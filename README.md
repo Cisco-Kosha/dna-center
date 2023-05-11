@@ -1,7 +1,5 @@
 # Kosha Cisco DNA Center Connector
 
-![dna-center](images/dna-center.png)
-
 The Cisco DNA Center Intent REST API exposes specific capabilities of the Cisco DNA Center platform and provides policy-based abstraction of business intent, allowing focus on an outcome rather than struggling with individual mechanisms steps.
 
 The Kosha Cisco DNA Center connector enables you to perform REST API operations from the DNA Center API in your Kosha workflow or custom application. Using the Kosha Cisco DNA Center connector, you can directly access the Cisco DNA Center platform to discover and control the network. 
