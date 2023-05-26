@@ -31,3 +31,9 @@ Use the Policy API to create application policies used to reflect your organizat
 To authenticate when provisioning the Kosha Cisco DNA Center connector, you need your Cisco DNA Center server URL, username, and password. The Kosha Cisco DNA Center connector automatically injects an `X-Auth-Token` header for every request made.
 
 To work properly, The Kosha Cisco DNA Center connector must be able to reach the server URL. Configure your firewall rules appropriately.
+
+## Kosha Connector Open Source Development
+
+All connectors Kosha shares on the marketplace are open source. We believe in fostering collaboration and open development. Everyone is welcome to contribute their ideas, improvements, and feedback for any Kosha connector. We encourage community engagement and appreciate any contributions that align with our goals of an open and collaborative API management platform.
+
+Refer to the contribution guidelines for details.
